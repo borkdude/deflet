@@ -48,7 +48,8 @@ I find the inline-def style particularly helpful when exploring code in the REPL
 This library also contains an [nbb](https://github.com/babashka/nbb) REPL-friendly variant, called `defletp` which works in concert with [promesa](https://github.com/funcool/promesa):
 
 ``` clojure
-(require '[borkdude.deflet :refer [defletp defp]])
+(require '[borkdude.deflet :refer [defletp defp]]
+         '[promesa.core :as p])
 
 (deftest defletp-test
   (defletp
