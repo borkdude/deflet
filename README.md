@@ -2,6 +2,8 @@
 
 Make let-expressions REPL-friendly!
 
+> Let them have their inline-def and eat it too.
+
 ## Usage
 
 ``` clojure
