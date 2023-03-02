@@ -26,6 +26,6 @@
                   (defletp ~@r))
                :else
                (if-not r f
-                       (list 'do f `(defletp ~@(rest forms)))))))))
+                       (list 'promesa.core/do f `(defletp ~@(rest forms)))))))))
 
 
