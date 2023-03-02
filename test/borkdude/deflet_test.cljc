@@ -11,9 +11,12 @@
 
 #?(:org.babashka/nbb
    (deftest defletp-test
-     (defletp
-       (defp x (p/delay 100 :result))
-       (is (= :result x)))))
+     (async
+      done
+      (-> (defletp
+            (defp x (p/delay 100 :result))
+            (is (= :result x)))
+          (p/finally done)))))
 
 ;;;; Scratch
 
@@ -24,3 +27,11 @@
                   (inc x)
                   ))
   )
+
+(deftest defletp-test
+  (async
+   done
+   (-> (defletp
+         (defp x (p/delay 100 :result))
+         (is (= :result x)))
+       (p/finally done))))

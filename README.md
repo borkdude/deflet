@@ -49,12 +49,16 @@ This library also contains an [nbb](https://github.com/babashka/nbb) REPL-friend
 
 ``` clojure
 (require '[borkdude.deflet :refer [defletp defp]]
+         '[cljs.test :refer [deftest async is]]
          '[promesa.core :as p])
 
 (deftest defletp-test
-  (defletp
-    (defp x (p/delay 100 :result))
-    (is (= :result x))))
+  (async
+   done
+   (-> (defletp
+         (defp x (p/delay 100 :result))
+         (is (= :result x)))
+       (p/finally done))))
 ```
 
 The `defp` works like `def` but wraps the result with `nbb.core/await` to await
