@@ -1,0 +1,3 @@
+{:config-in-call
+ {borkdude.deflet/deflet {:linters {:inline-def {:level :off}}}
+  borkdude.deflet/defletp {:linters {:inline-def {:level :off}}}}}
