@@ -51,6 +51,10 @@ jobs:
         run: |
           bb test:clj
 
+      - name: Execute cljs tests
+        run: |
+          bb test:cljs
+
       - name: Execute bb tests
         run: |
           bb test:bb
