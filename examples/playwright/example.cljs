@@ -7,7 +7,8 @@
 (def headless (boolean (.-CI js/process.env)))
 
 (deftest my-test
-  (let [browser-ref (atom nil)]
+  (defletp
+    (defp browser-ref (atom nil))
     (async
      done
      (->
