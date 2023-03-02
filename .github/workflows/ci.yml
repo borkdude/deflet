@@ -58,5 +58,5 @@ jobs:
       - name: Execute nbb tests
         run: |
           npm install
-          nbb test:nbb
+          bb test:nbb
 
