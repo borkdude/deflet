@@ -1,15 +1,11 @@
 (ns borkdude.deflet
-  {:clj-kondo/config
-   '{:config-in-call
-     {borkdude.deflet/deflet {:linters {:inline-def {:level :off}}}}}})
+  #?(:cljs (:require-macros [borkdude.deflet :refer [deflet]])))
 
 #?(:org.babashka/nbb
    (do
-     (def nbb? true)
      (require 'promesa.core)
      (defmacro defp [name value]
-       `(def ~name (nbb.core/await ~value))))
-   :default (def nbb? false))
+       `(def ~name (nbb.core/await ~value)))))
 
 (defmacro deflet [& forms]
   (let [f (first forms)
