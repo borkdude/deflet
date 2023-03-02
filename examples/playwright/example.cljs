@@ -1,7 +1,7 @@
 (ns playwright.example
   (:require ["playwright$default" :refer [chromium]]
             [clojure.test :as t :refer [deftest is async]]
-            [borkdude.deflet :refer #_:clj-kondo/ignore [defletp defp]]
+            [borkdude.deflet :refer [defletp defp]]
             [promesa.core :as p]))
 
 (def headless (boolean (.-CI js/process.env)))
