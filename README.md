@@ -35,7 +35,7 @@ The above `deflet` form expands into:
 
 ``` clojure
 (let [x 10]
-  (let [y x]
+  (let [y (inc x)]
     y))
 ```
 
