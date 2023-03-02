@@ -56,8 +56,7 @@ This library also contains an [nbb](https://github.com/babashka/nbb) REPL-friend
     (is (= :result x))))
 ```
 
-The `defp` works like `def` but use `nbb.core/await` to await top level
-promises, so when evaluating `(defp x (p/delay 100 :result))` in the nbb REPL,
-you'll get a var `x` bound to `100` instead of a promise. But the `defletp`
-macro expands this into a `promesa.core/let` expression.
-
+The `defp` works like `def` but wraps the result with `nbb.core/await` to await
+top level promises. So when evaluating `(defp x (p/delay 100 :result))` in the
+nbb REPL, you'll get a var `x` bound to `100` instead of a promise. But the
+`defletp` macro expands this into a `promesa.core/let` expression.
