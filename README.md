@@ -70,3 +70,7 @@ The `defp` works like `def` but wraps the result with `nbb.core/await` to await
 top level promises. So when evaluating `(defp x (p/delay 100 :result))` in the
 nbb REPL, you'll get a var `x` bound to `100` instead of a promise. But the
 `defletp` macro expands this into a `promesa.core/let` expression.
+
+[Here](examples/playwright) is a demo of how you can use deflet with nbb and playwright tests.
+
+<img src="https://user-images.githubusercontent.com/284934/222552490-439cb704-d0b0-4650-b0fc-0e18f49423eb.png">
