@@ -26,4 +26,13 @@
                   (def x 10)
                   (inc x)
                   ))
+
+  (clojure.walk/macroexpand-all
+   '(deflet
+     (def x 10)
+     (def y (inc x))
+     y
+     ))
+
+
   )

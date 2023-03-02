@@ -13,25 +13,28 @@ things expression by expression as you go:
 
 ``` clojure
 (comment
-  (def x 10)
-  (inc x) ;;=> 11
+  (def x 10) ;; => #'x
+  (def y (inc x)) ;;=> #'y
+  y ;;=> 11
 )
 ```
 
-but now without polluting the global environment in production / library code:
+but now without polluting the global environment in production / library code,
+while still having the ability to evaluate expressions in the REPL:
 
 ``` clojure
 (deflet
   (def x 10)
-  (inc x)
-  ) ;;=> 11
+  (def y (inc x))
+  y) ;;=> 11
 ```
 
 The above `deflet` form expands into:
 
 ``` clojure
 (let [x 10]
-  (inc x))
+  (let [y x]
+    y))
 ```
 
 I find the inline-def style particularly helpful when exploring code in the REPL, e.g. when writing tests:
