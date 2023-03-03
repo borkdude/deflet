@@ -26,7 +26,8 @@ while still having the ability to evaluate expressions in the REPL:
 
 ``` clojure
 (deflet
-  (def x 10) ;;=> #'x, this still works in your editor for individual forms
+  ;; evaluation still works for individual forms in a REPL-connected editor:
+  (def x 10) ;;=> #'x
   (def y (inc x)) ;;=> #'y
   y) ;;=> 11
 ```
