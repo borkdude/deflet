@@ -1,5 +1,7 @@
 # deflet
 
+[![Clojars Project](https://img.shields.io/clojars/v/io.github.borkdude/deflet.svg)](https://clojars.org/io.github.borkdude/deflet)
+
 Make let-expressions REPL-friendly!
 
 > Let them have their inline-def and eat it too.
