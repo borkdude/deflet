@@ -29,6 +29,7 @@ while still having the ability to evaluate expressions in the REPL:
   ;; evaluation still works for individual forms in a REPL-connected editor:
   (def x 10) ;;=> #'x
   (def y (inc x)) ;;=> #'y
+  ;; but the whole expression is compiled into a let-expression which returns the last value:
   y) ;;=> 11
 ```
 
