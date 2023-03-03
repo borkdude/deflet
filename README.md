@@ -26,8 +26,8 @@ while still having the ability to evaluate expressions in the REPL:
 
 ``` clojure
 (deflet
-  (def x 10)
-  (def y (inc x))
+  (def x 10) ;;=> #'x, this still works in your editor for individual forms
+  (def y (inc x)) ;;=> #'y
   y) ;;=> 11
 ```
 
@@ -36,7 +36,7 @@ The above `deflet` form expands into:
 ``` clojure
 (let [x 10]
   (let [y (inc x)]
-    y))
+    y)) ;;=> 11
 ```
 
 I find the inline-def style particularly helpful when exploring code in the REPL, e.g. when writing tests:
