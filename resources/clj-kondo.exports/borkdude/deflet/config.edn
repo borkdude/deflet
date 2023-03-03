@@ -1,4 +1,3 @@
-{:config-in-call
- {borkdude.deflet/deflet {:linters {:inline-def {:level :off}}}
-  borkdude.deflet/defletp {:linters {:inline-def {:level :off}}}}
- :lint-as {borkdude.deflet/defp clojure.core/def}}
+{:lint-as {borkdude.deflet/defp clojure.core/def}
+ :hooks {:analyze-call {borkdude.deflet/deflet borkdude.deflet/deflet
+                        borkdude.deflet/defletp borkdude.deflet/deflet}}}

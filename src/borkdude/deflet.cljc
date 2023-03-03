@@ -8,7 +8,7 @@
       `(let [~(second f) ~(nth f 2)]
          (deflet ~@r))
       (if-not r f
-              (list 'do f `(deflet ~@(rest forms)))))))
+              (list 'do f `(deflet ~@r))))))
 
 #?(:org.babashka/nbb
    (do
