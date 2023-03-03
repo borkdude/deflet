@@ -5,4 +5,5 @@
            :extra-deps {io.github.cognitect-labs/test-runner
                         {:git/tag "v0.5.0" :git/sha "b3fd0d2"}}
            :task cognitect.test-runner/-main}
-  test:nbb {:task (shell "npx nbb --classpath .:src:test test/nbb_runner.cljs")}}}
+  test:nbb {:task (shell "npx nbb --classpath .:src:test test/nbb_runner.cljs")}
+  publish (clojure "-T:build deploy")}}

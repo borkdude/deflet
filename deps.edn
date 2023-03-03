@@ -3,10 +3,17 @@
  {:test-clj
   {:extra-paths ["test"]
    :extra-deps {io.github.cognitect-labs/test-runner
-                 {:git/tag "v0.5.0" :git/sha "b3fd0d2"}}
+                {:git/tag "v0.5.0" :git/sha "b3fd0d2"}}
    :main-opts ["-m" "cognitect.test-runner"]
    :exec-fn cognitect.test-runner.api/test}
   :test-cljs
   {:extra-deps {olical/cljs-test-runner {:mvn/version "3.8.0"}}
    :extra-paths ["test" "cljs-test-runner-out/gen"]
-   :main-opts ["-m" "cljs-test-runner.main"]}}}
+   :main-opts ["-m" "cljs-test-runner.main"]}
+  :build
+  {:deps {io.github.clojure/tools.build {:git/tag "v0.9.3" :git/sha "e537cd1"}
+          slipset/deps-deploy {:mvn/version "0.2.0"}}
+   :ns-default build}
+  ;; project settings for build:
+  :neil {:project {:name io.github.borkdude/deflet
+                   :version "0.1.0"}}}}
