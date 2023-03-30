@@ -3,14 +3,19 @@
 
 (defn deflet* [children]
   (let [f (first children)
-        r (next children)]
-    (if (and (hooks-api/list-node? f)
-             (#{'def 'defp} (hooks-api/sexpr (first (:children f)))))
+        r (next children)
+        lnode? (hooks-api/list-node? f)
+        call-node (first (:children f))
+        call-sym (when lnode? (hooks-api/sexpr call-node))]
+    (if (#{'def 'defp 'bind 'bindp} call-sym)
       (let [def-children (:children f)]
         (with-meta (hooks-api/list-node
                     [(hooks-api/coerce 'clojure.core/let)
-                     (hooks-api/vector-node [(second def-children)
-                                             (nth def-children 2)])
+                     (hooks-api/vector-node
+                      (cond-> [(second def-children)
+                               (nth def-children 2)]
+                        (#{'bind 'bindp} call-sym)
+                        (conj (hooks-api/token-node '_) call-node)))
                      (deflet* r)])
           (meta f)))
       (if-not r (or f (hooks-api/coerce nil))
