@@ -52,6 +52,9 @@ I find the inline-def style particularly helpful when exploring code in the REPL
     (is (= 10 x))))
 ```
 
+In constrast to writing inline defs without deflet, type hints actually work the
+way you'd expect and you can still run your tests in parallel.
+
 ## Nbb
 
 This library also contains an [nbb](https://github.com/babashka/nbb) REPL-friendly variant, called `defletp` which works in concert with [promesa](https://github.com/funcool/promesa):
