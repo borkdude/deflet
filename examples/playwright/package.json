@@ -1,6 +1,10 @@
 {
-  "dependencies": {
-    "nbb": "^1.2.169",
-    "playwright": "^1.31.2"
-  }
+    "scripts": {
+        "prepare": "npx playwright install chromium",
+        "test": "npx nbb -m example"
+    },
+    "dependencies": {
+        "nbb": "^1.3.204",
+        "playwright": "^1.55.1"
+    }
 }
